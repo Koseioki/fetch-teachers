@@ -14,7 +14,7 @@ async function initApp() {
 
 async function getTeachers() {
   //Fetch the data from the API
-  const response = await fetch("https://raw.githubusercontent.com/cederdorff/race/master/data/users.json");
+  const response = await fetch("https://headlesswp.koseioki.dk/wp-json/wp/v2/teachers?acf_format=standard");
   const data = await response.json(); //Parse the data as JSON into readable JS
   return data;
 }
@@ -38,11 +38,12 @@ function displayTeachersGrid(teachers) {
     teachersGrid.insertAdjacentHTML(
       "beforeend",`
       <article class="grid-item">
-        <img src="${teacher.image}" alt="${teacher.name}">
-          <h2>${teacher.name}</h2>
-          <p>${teacher.title}</p>
-          <a href="mailto:${teacher.mail}">${teacher.mail}</a>
-          <p>${teacher.name} likes strawberries so much (strawberries are very delicious)</p>
+        <img src="${teacher.acf.image}" alt="${teacher.acf.name}">
+          <h2>${teacher.acf.name}</h2>
+          <p>${teacher.acf.title}</p>
+          <a href="mailto:${teacher.acf.mail}">${teacher.acf.mail}</a>
+          <p>${teacher.acf.name} likes strawberries so much (because strawberries are very delicious)</p>
+          <p>${teacher.acf.name} likes Very nice bear because ${teacher.acf.bear}</p>
       </article>`
 
     );
