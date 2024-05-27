@@ -42,6 +42,7 @@ function displayTeachersGrid(teachers) {
           <h2>${teacher.name}</h2>
           <p>${teacher.title}</p>
           <a href="mailto:${teacher.mail}">${teacher.mail}</a>
+          <p>${teacher.name} likes strawberries so much (strawberries are very delicious)</p>
       </article>`
 
     );
